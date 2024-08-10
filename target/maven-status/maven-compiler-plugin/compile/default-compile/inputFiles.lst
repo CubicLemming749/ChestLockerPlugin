@@ -3,4 +3,5 @@ C:\Users\mauri\IdeaProjects\Plugin\src\main\java\pr\cubicdev\plugin\Plugin.java
 C:\Users\mauri\IdeaProjects\Plugin\src\main\java\pr\cubicdev\plugin\Utils\messageUtils.java
 C:\Users\mauri\IdeaProjects\Plugin\src\main\java\pr\cubicdev\plugin\Utils\lockUtils.java
 C:\Users\mauri\IdeaProjects\Plugin\src\main\java\pr\cubicdev\plugin\Listeners\openInventoryEvent.java
+C:\Users\mauri\IdeaProjects\Plugin\src\main\java\pr\cubicdev\plugin\Listeners\onBlockBreakEvent.java
 C:\Users\mauri\IdeaProjects\Plugin\src\main\java\pr\cubicdev\plugin\Commands\mainCommand.java

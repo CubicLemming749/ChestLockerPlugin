@@ -1,4 +1,0 @@
-pr\cubicdev\plugin\Plugin.class
-pr\cubicdev\plugin\Listeners\onBlockBreakEvent.class
-pr\cubicdev\plugin\Utils\messageUtils.class
-pr\cubicdev\plugin\Commands\mainCommand.class

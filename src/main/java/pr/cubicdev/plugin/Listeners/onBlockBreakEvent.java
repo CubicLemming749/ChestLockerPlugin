@@ -22,15 +22,19 @@ public class onBlockBreakEvent implements Listener {
         Player player = (Player) e.getPlayer();
         Block block = e.getBlock();
         Location loc = block.getLocation();
+        //Es un cofre?
         if(block.getType() == Material.CHEST){
-            if(lockUtils.isLocked(loc)){
-                player.sendMessage(messageUtils.getColoredMSG(Plugin.getPrefix()+" &cEste cofre esta bloqueado por: &6"+lockUtils.getWhoLocked(loc)));
+            //Esta reclamado?
+            if(lockUtils.isLocked(loc) && lockUtils.getWhoLocked(loc) != player) {
+                player.sendMessage(messageUtils.getColoredMSG(Plugin.getPrefix() + " &cEste cofre esta bloqueado por: &6" + lockUtils.getWhoLocked(loc)));
                 e.setCancelled(true);
-            }else if(lockUtils.getWhoLocked(loc) == player){
+            //Esta reclamado pero el jugador es el dueño.
+            } else {
                 player.sendMessage(messageUtils.getColoredMSG(Plugin.getPrefix()+ " &aHas roto tu cofre con exito."));
+                e.setCancelled(false);
                 lockUtils.blockMap.remove(loc, true);
                 lockUtils.playerMap.remove(player, loc);
+                }
             }
         }
     }
-}

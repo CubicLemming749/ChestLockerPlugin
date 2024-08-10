@@ -31,16 +31,20 @@ public class mainCommand implements CommandExecutor {
         }else{
             Player player = (Player) commandSender;
             Block block = player.getTargetBlockExact(20);
+            if(block == null){
+                player.sendMessage(messageUtils.getColoredMSG(Main.getPrefix()+" &cNo estas mirando a un cofre."));player.sendMessage(messageUtils.getColoredMSG(Main.getPrefix()+" &cNo estas mirando a un cofre."));
+            }
             Location loc = block.getLocation();
             //Verificar que sea un cofre
             if(block.getType() == Material.CHEST) {
                 //Verificar que no este bloqueado
                 if (!(pr.cubicdev.plugin.Utils.lockUtils.isLocked(loc))) {
                     lockUtils.playerMap.put(player, loc);
+                    lockUtils.blockMap.put(loc, true);
                     player.sendMessage(messageUtils.getColoredMSG(Main.getPrefix() + " &aCofre reclamado con exito. Ahora solo tu puedes abrirlo."));
                     //Si esta bloqueado, decirle al jugador:
-                } else {
-                    player.sendMessage(messageUtils.getColoredMSG(Main.getPrefix() + " &cEste cofre ya fue bloqueado por: &6" + lockUtils.getWhoLocked(loc)));
+                } else if(pr.cubicdev.plugin.Utils.lockUtils.isLocked(loc)){
+                    player.sendMessage(messageUtils.getColoredMSG(Main.getPrefix() + " &cEste cofre ya fue reclamado por: &6" + lockUtils.getWhoLocked(loc)));
                 }
             //Si no es un cofre:
             }else{
