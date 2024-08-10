@@ -31,9 +31,6 @@ public class mainCommand implements CommandExecutor {
         }else{
             Player player = (Player) commandSender;
             Block block = player.getTargetBlockExact(20);
-            if(block == null){
-                player.sendMessage(messageUtils.getColoredMSG(Main.getPrefix()+" &cNo estas mirando a un cofre."));player.sendMessage(messageUtils.getColoredMSG(Main.getPrefix()+" &cNo estas mirando a un cofre."));
-            }
             Location loc = block.getLocation();
             //Verificar que sea un cofre
             if(block.getType() == Material.CHEST) {

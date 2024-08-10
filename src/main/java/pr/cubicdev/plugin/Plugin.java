@@ -27,7 +27,7 @@ public final class Plugin extends JavaPlugin {
         Bukkit.getConsoleSender().sendMessage(messageUtils.getColoredMSG(prefix+ " &a¡Plugin iniciado con exito! Version: "+version));
         registerEvents(generalUtils, lockUtils);
         registerCommands(lockUtils);
-        while(this.getCommand("chestlock") == null){
+        if(this.getCommand("chestlock") == null){
             Bukkit.getConsoleSender().sendMessage("EL COMANDO NO PUDO SER REGISTRADO! REINICIA EL SERVIDOR");
         }
         Bukkit.getConsoleSender().sendMessage("Comandos cargados con exito.");

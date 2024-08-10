@@ -29,7 +29,7 @@ public class onBlockBreakEvent implements Listener {
                 player.sendMessage(messageUtils.getColoredMSG(Plugin.getPrefix() + " &cEste cofre esta bloqueado por: &6" + lockUtils.getWhoLocked(loc)));
                 e.setCancelled(true);
             //Esta reclamado pero el jugador es el dueño.
-            } else {
+            } else if(lockUtils.getWhoLocked(loc) == player){
                 player.sendMessage(messageUtils.getColoredMSG(Plugin.getPrefix()+ " &aHas roto tu cofre con exito."));
                 e.setCancelled(false);
                 lockUtils.blockMap.remove(loc, true);
